@@ -1,2 +1,2 @@
-# GDPR_test
+# Cookie consent
 Simple include test for cookie consent
