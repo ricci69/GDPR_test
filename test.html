@@ -43,6 +43,19 @@
                     
                     let devid = Math.random().toString(36).substr(2, 5)+"-"+Math.random().toString(36).substr(2, 5)+"-"+Math.random().toString(36).substr(2, 5)+"-"+Math.random().toString(36).substr(2, 5);
                     cc.set('data', {value: {id: devid, country: "italy"}});                 
+                    fetch('pot.php', {
+                        method : "POST",
+                        headers: {
+                            'Accept': 'application/json, text/plain, */*',
+                            'Content-Type': 'application/json'
+                        },                          
+                        body : JSON.stringify(cookie)
+                    }).then(
+                        response => response.text() // .json(), etc.
+                        // same as function(response) {return response.text();}
+                    ).then(
+                        html => console.log(html)
+                    );                    
                     
                     console.log("onFirstAction");
                     console.log(user_preferences);
@@ -55,6 +68,22 @@
 
                 onChange: function (cookie, changed_categories) {
                     // callback triggered when user changes preferences after consent has already been given
+                    
+                    fetch('pot.php', {
+                        method : "POST",
+                        headers: {
+                            'Accept': 'application/json, text/plain, */*',
+                            'Content-Type': 'application/json'
+                        },                          
+                        body : JSON.stringify(cookie)
+                    }).then(
+                        response => response.text() // .json(), etc.
+                        // same as function(response) {return response.text();}
+                    ).then(
+                        html => console.log(html)
+                    );                    
+                                      
+                    
                     console.log("onChange");
                     console.log(changed_categories);
                     console.log(cookie);                    
