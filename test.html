@@ -40,6 +40,13 @@
 
                 onFirstAction: function(user_preferences, cookie){
                     // callback triggered only once on the first accept/reject action
+                    
+                    let devid = Math.random().toString(36).substr(2, 5)+"-"+Math.random().toString(36).substr(2, 5)+"-"+Math.random().toString(36).substr(2, 5)+"-"+Math.random().toString(36).substr(2, 5);
+                    cc.set('data', {value: {id: devid, country: "italy"}});                 
+                    
+                    console.log("onFirstAction");
+                    console.log(user_preferences);
+                    console.log(cookie);
                 },
 
                 onAccept: function (cookie) {
@@ -48,6 +55,9 @@
 
                 onChange: function (cookie, changed_categories) {
                     // callback triggered when user changes preferences after consent has already been given
+                    console.log("onChange");
+                    console.log(changed_categories);
+                    console.log(cookie);                    
                 },
 
                 gui_options: {
