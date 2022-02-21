@@ -1,0 +1,3 @@
+[submodule "cookieconsent"]
+	path = cookieconsent
+	url = ./cookieconsent
